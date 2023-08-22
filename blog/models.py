@@ -5,7 +5,7 @@ from accounts.models import User
 
 class Category(models.Model):
     title = models.CharField(max_length=150,unique=True)
-    slug = models.SlugField(null=True)
+    slug = models.SlugField(null=True,blank=True)
     created_date = models.DateField(auto_now_add=True)
     
     def __str__(self) -> str:
@@ -17,11 +17,13 @@ class Category(models.Model):
 
 class Tags(models.Model):
     title = models.CharField(max_length=150)
-    slug = models.SlugField(null=True)
+    slug = models.SlugField(null=True,blank=True)
     created_date = models.DateField(auto_now_add=True)
     
     def __str__(self) -> str:
-        return self.title  
+        return self.title
+    class Meta:
+        verbose_name_plural = 'Tags'  
 
 class Blog(models.Model):
     user = models.ForeignKey(
