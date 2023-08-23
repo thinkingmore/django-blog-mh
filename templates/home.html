@@ -33,17 +33,17 @@
                               <div class="col-6">
                                 <ul class="post-tags">
                                   <li><i class="fa fa-tags"></i></li>
-                                  {% if blog.tags.all.count > 0 %}
-                                    {% for tag in blog.tags.all %}
-                                    {% if not forloop.last %}
-                                      <li><a href="#">{{tag.title}}</a>,</li>
+                                    {% if blog.tags.all.count > 0 %}
+                                      {% for tag in blog.tags.all %}
+                                        {% if not forloop.last %}
+                                          <li><a href="#">{{tag.title}}</a>,</li>
+                                        {% else %}
+                                          <li><a href="#">{{tag.title}}</a></li>  
+                                        {% endif %}
+                                      {% endfor %}
                                     {% else %}
-                                      <li><a href="#">{{tag.title}}</a></li>  
+                                      None  
                                     {% endif %}
-                                    {% endfor %}
-                                  {% else %}
-                                    None  
-                                  {% endif %}
                                 </ul>
                               </div>
                               <div class="col-6">
